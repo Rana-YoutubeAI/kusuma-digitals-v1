@@ -1,0 +1,76 @@
+# Kusuma Digitals — Netlify Configuration
+# This file controls redirects, headers, and build settings.
+
+[build]
+  publish = "."
+
+# ─── REDIRECTS ──────────────────────────────────────────────────────────────
+
+# Force HTTP → HTTPS (Netlify does this by default but explicit is better)
+[[redirects]]
+  from = "http://kusumadigitals.com/*"
+  to   = "https://www.kusumadigitals.com/:splat"
+  status = 301
+  force  = true
+
+# Force non-www → www (canonical domain)
+[[redirects]]
+  from = "https://kusumadigitals.com/*"
+  to   = "https://www.kusumadigitals.com/:splat"
+  status = 301
+  force  = true
+
+# Custom 404 page — MUST be last redirect
+[[redirects]]
+  from   = "/*"
+  to     = "/404.html"
+  status = 404
+
+# ─── SECURITY HEADERS (applied to every page) ────────────────────────────────
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Prevent clickjacking — no one can embed your site in an iframe
+    X-Frame-Options = "DENY"
+
+    # Prevent MIME type sniffing attacks
+    X-Content-Type-Options = "nosniff"
+
+    # Control referrer info when clicking outbound links
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+    # Disable features you don't use (camera, mic, GPS)
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+    # XSS protection for older browsers
+    X-XSS-Protection = "1; mode=block"
+
+# ─── CACHE HEADERS ───────────────────────────────────────────────────────────
+# Static assets cached for 1 year — huge performance win
+# If you change a file, change its filename or add ?v=2 to bust the cache
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/favicon.svg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# HTML pages — short cache, always fresh
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"

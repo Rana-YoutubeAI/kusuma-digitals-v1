@@ -1,0 +1,41 @@
+/*
+  KUSUMA DIGITALS — THEME 3: CITRUS
+  ─────────────────────────────────────────────────────────────────
+  Warm Dark Espresso + Burnt Orange
+  Vibe: Sharp, energetic, techy but approachable
+  ─────────────────────────────────────────────────────────────────
+  To activate: change the theme <link> in your HTML to point here.
+  DEV: Use the floating theme switcher in the bottom-right corner.
+*/
+
+:root {
+  /* Brand colors */
+  --color-primary:          #1C1917;
+  --color-primary-light:    #292524;
+  --color-accent:           #F97316;
+  --color-accent-dark:      #EA6C0A;
+  --color-accent-subtle:    rgba(249, 115, 22, 0.10);
+
+  /* Page backgrounds */
+  --color-background:       #FAFAF9;
+  --color-surface:          #F5F4EF;
+  --color-surface-2:        #EEEBE3;
+
+  /* Text */
+  --color-text:             #1C1917;
+  --color-text-muted:       #78716C;
+  --color-text-faint:       #A8A29E;
+
+  /* Borders */
+  --color-border:           rgba(28, 25, 23, 0.08);
+  --color-border-strong:    rgba(28, 25, 23, 0.15);
+
+  /* Hero section */
+  --color-hero-bg:          #1C1917;
+  --color-hero-text:        #FAFAF9;
+  --color-hero-muted:       rgba(250, 250, 249, 0.65);
+  --color-hero-border:      rgba(255, 255, 255, 0.13);
+
+  /* Decorative geometric accent */
+  --color-geo-accent:       rgba(249, 115, 22, 0.08);
+}

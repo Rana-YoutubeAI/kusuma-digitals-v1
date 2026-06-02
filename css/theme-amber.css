@@ -1,0 +1,41 @@
+/*
+  KUSUMA DIGITALS — THEME 1: AMBER
+  ─────────────────────────────────────────────────────────────────
+  Espresso Black + Warm Amber
+  Vibe: Bold, confident, premium digital agency
+  ─────────────────────────────────────────────────────────────────
+  To activate: change the theme <link> in your HTML to point here.
+  DEV: Use the floating theme switcher in the bottom-right corner.
+*/
+
+:root {
+  /* Brand colors */
+  --color-primary:          #111111;
+  --color-primary-light:    #1f1f1f;
+  --color-accent:           #F59E0B;
+  --color-accent-dark:      #D97706;
+  --color-accent-subtle:    rgba(245, 158, 11, 0.15);
+
+  /* Page backgrounds */
+  --color-background:       #FAFAFA;
+  --color-surface:          #F3F4F6;
+  --color-surface-2:        #E9EAEC;
+
+  /* Text */
+  --color-text:             #1A1A1A;
+  --color-text-muted:       #6B7280;
+  --color-text-faint:       #9CA3AF;
+
+  /* Borders */
+  --color-border:           rgba(0, 0, 0, 0.08);
+  --color-border-strong:    rgba(0, 0, 0, 0.15);
+
+  /* Hero section (always dark) */
+  --color-hero-bg:          #111111;
+  --color-hero-text:        #FAFAFA;
+  --color-hero-muted:       rgba(250, 250, 250, 0.65);
+  --color-hero-border:      rgba(255, 255, 255, 0.15);
+
+  /* Decorative geometric accent (CSS background shapes) */
+  --color-geo-accent:       rgba(245, 158, 11, 0.08);
+}

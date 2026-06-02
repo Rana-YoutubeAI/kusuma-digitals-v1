@@ -1,0 +1,41 @@
+/*
+  KUSUMA DIGITALS — THEME 2: CRIMSON
+  ─────────────────────────────────────────────────────────────────
+  Deep Wine + Warm Gold
+  Vibe: Rich, premium, memorable — nobody in STL is using this
+  ─────────────────────────────────────────────────────────────────
+  To activate: change the theme <link> in your HTML to point here.
+  DEV: Use the floating theme switcher in the bottom-right corner.
+*/
+
+:root {
+  /* Brand colors */
+  --color-primary:          #7C1D2C;
+  --color-primary-light:    #9B2335;
+  --color-accent:           #D4A843;
+  --color-accent-dark:      #B8922E;
+  --color-accent-subtle:    rgba(212, 168, 67, 0.10);
+
+  /* Page backgrounds */
+  --color-background:       #FEFEFE;
+  --color-surface:          #FFF6F6;
+  --color-surface-2:        #FFE8E8;
+
+  /* Text */
+  --color-text:             #1A1A1A;
+  --color-text-muted:       #6B7280;
+  --color-text-faint:       #9CA3AF;
+
+  /* Borders */
+  --color-border:           rgba(124, 29, 44, 0.08);
+  --color-border-strong:    rgba(124, 29, 44, 0.18);
+
+  /* Hero section (deep wine — this is what makes theme 2 unique) */
+  --color-hero-bg:          #7C1D2C;
+  --color-hero-text:        #FEFEFE;
+  --color-hero-muted:       rgba(254, 254, 254, 0.65);
+  --color-hero-border:      rgba(255, 255, 255, 0.18);
+
+  /* Decorative geometric accent */
+  --color-geo-accent:       rgba(212, 168, 67, 0.08);
+}
