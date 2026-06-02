@@ -1,3 +1,6 @@
+/* overrides inline body{visibility:hidden} in <head> once this file loads */
+body { visibility: visible !important; }
+
 /*
   KUSUMA DIGITALS — MASTER STYLESHEET (styles.css)
   ─────────────────────────────────────────────────────────────────

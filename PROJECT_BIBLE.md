@@ -78,9 +78,18 @@ KUSUMA-DIGITALS/                  ← project root (Netlify deploy root)
 
 ## ACTIVE CSS FILES (load in this order, always)
 
+Root pages (`index.html`, etc.):
 ```html
-<link rel="stylesheet" href="/css/theme-amber.css" id="theme-stylesheet" />
-<link rel="stylesheet" href="/css/styles.css" />
+<link rel="stylesheet" href="css/theme-amber.css" id="theme-stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+<style>body{visibility:hidden}</style>
+```
+
+Blog pages (`blog/post-N.html`, etc.) — prefix with `../`:
+```html
+<link rel="stylesheet" href="../css/theme-amber.css" id="theme-stylesheet">
+<link rel="stylesheet" href="../css/styles.css">
+<style>body{visibility:hidden}</style>
 ```
 
 `theme-amber.css` — color variables only
@@ -263,8 +272,8 @@ Dark hero → White section → Surface section → White section → Dark CTA �
     <!-- Success popup (contact.html only) -->
     <!-- DEV theme switcher (remove before launch) -->
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
-    <script src="/js/main.js"></script>
-    <script src="/js/form.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/form.js"></script>
     <script>
       document.getElementById("copyright-year").textContent =
         new Date().getFullYear();
@@ -363,7 +372,7 @@ Label the tech services "Custom Tools & Automation" — never "Python and Java."
 - Never create new CSS files — all CSS goes into `css/styles.css`
 - Never create new JS files — all JS goes into `js/main.js` or `js/form.js`
 - Never add subdirectories except `blog/`, `css/`, `images/`, `js/`
-- All HTML file paths in `<link>` and `<script>` tags use absolute root paths (`/css/`, `/js/`, `/images/`)
+- All HTML file paths use **relative paths** (no leading `/`). Root pages: `css/`, `js/`, `images/`. Blog pages: `../css/`, `../js/`, `../images/`
 
 ---
 

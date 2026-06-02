@@ -127,18 +127,15 @@ function initSmoothScroll() {
 
 /* ─── 4. ACTIVE NAV LINK ──────────────────────────────────────── */
 function initActiveNavLink() {
-  // Mark the current page's nav link as active
   const currentPath = window.location.pathname;
   const navLinks    = document.querySelectorAll('.nav__link');
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
-    // Root page
-    if (href === '/' || href === '/index.html') {
-      if (currentPath === '/' || currentPath === '/index.html') {
-        link.classList.add('is-active');
-      }
-    } else if (href && currentPath.includes(href)) {
+    if (!href) return;
+    // Strip leading ../ so relative paths from blog/ subdir still match the URL
+    const bare = href.replace(/^(\.\.\/)+/, '');
+    if (bare && currentPath.includes(bare)) {
       link.classList.add('is-active');
     }
   });
