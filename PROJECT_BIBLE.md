@@ -1,4 +1,4 @@
-# PROJECT BIBLE LITE — KUSUMA DIGITALS
+# PROJECT BIBLE LITE — KUSUMA DIGITAL SOLUTIONS
 
 **Authority:** This file governs all code generation decisions.
 **Full reference:** PROJECT_BIBLE.md (rationale, hidden knowledge, history)
@@ -8,7 +8,7 @@
 
 ## IDENTITY
 
-Kusuma Digitals — solo digital agency, St. Louis MO, run by Rana.
+Kusuma Digital Solutions — solo digital agency, St. Louis MO, run by Rana.
 Goal: lead generation and booked calls from local small businesses.
 Write all copy for a restaurant or salon owner, not a developer.
 Outcomes first. Plain English. No jargon. First person on About page.
@@ -207,7 +207,7 @@ All components are fully defined in `styles.css` and demonstrated in `index.html
 | Component      | Class                                        | Notes                                                                                                                                                                   |
 | -------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Button         | `.btn .btn-primary/ghost/outline .btn-sm/lg` | Primary=filled amber, ghost=dark bg, outline=light bg                                                                                                                   |
-| Nav            | `.nav`                                       | Logo = `<img class="nav__logo-icon">` (favicon.svg 36×36) + `<span class="nav__logo-text">Kusuma Digitals</span>`. Copy from index.html. Change `.is-active` link only. |
+| Nav            | `.nav`                                       | Logo = `<img class="nav__logo-icon">` (favicon.svg 36×36) + `<span class="nav__logo-text">Kusuma Digital Solutions</span>`. Copy from index.html. Change `.is-active` link only. |
 | Hero           | `.hero`                                      | Dark bg, CSS-only geo circles, badge + H1 + sub + CTAs                                                                                                                  |
 | Trust strip    | `.trust-strip`                               | One sentence, dark bg                                                                                                                                                   |
 | Service card   | `.service-card.reveal`                       | Copy `<article>` pattern. 6 per grid.                                                                                                                                   |

@@ -1,4 +1,4 @@
-# PROJECT TRACKER — KUSUMA DIGITALS
+# PROJECT TRACKER — KUSUMA DIGITAL SOLUTIONS
 
 **Session:** 3 Complete | **Updated:** 2026-06-01
 **Rules/Architecture:** PROJECT_BIBLE.md

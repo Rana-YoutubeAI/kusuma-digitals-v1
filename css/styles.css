@@ -2,9 +2,9 @@
 body { visibility: visible !important; }
 
 /*
-  KUSUMA DIGITALS — MASTER STYLESHEET (styles.css)
+  KUSUMA DIGITAL SOLUTIONS — MASTER STYLESHEET (styles.css)
   ─────────────────────────────────────────────────────────────────
-  Author:      Built by Radha for Rana / Kusuma Digitals
+  Author:      Built by Radha for Rana / Kusuma Digital Solutions
   Version:     1.0.0
   Approach:    Mobile-first. Base = 320px. Enhance up.
   Fonts:       Plus Jakarta Sans (headings) / Inter (body)
@@ -1338,8 +1338,8 @@ hr {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.65);
-  backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
 }
 
 .popup__card {

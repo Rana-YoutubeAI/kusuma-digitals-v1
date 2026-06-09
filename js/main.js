@@ -1,5 +1,5 @@
 /**
- * KUSUMA DIGITALS — main.js
+ * KUSUMA DIGITAL SOLUTIONS — main.js
  * ─────────────────────────────────────────────────────────────────
  * Handles:
  *   1. Sticky nav (transparent → solid on scroll)

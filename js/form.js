@@ -1,5 +1,5 @@
 /**
- * KUSUMA DIGITALS — form.js
+ * KUSUMA DIGITAL SOLUTIONS — form.js
  * ─────────────────────────────────────────────────────────────────
  * Handles:
  *   1. Cookie consent banner (show/hide, accept/decline)

@@ -1,4 +1,4 @@
-# KUSUMA DIGITALS — PROJECT HANDOFF
+# KUSUMA DIGITAL SOLUTIONS — PROJECT HANDOFF
 **For:** Claude (Radha persona) — read this at the start of every session.
 **Owner:** Rana | rana@kusumadigitals.com | St. Louis, Missouri
 **Last updated:** 2026-05-30 — Session 1 complete
@@ -15,7 +15,7 @@ You are the senior engineer. Rana is the copy-paste executor.
 ---
 
 ## THE BUSINESS
-**Kusuma Digitals** — solo operation run by Rana.
+**Kusuma Digital Solutions** — solo operation run by Rana.
 - Web design and development
 - Local SEO and Google presence
 - Monthly website care / maintenance retainer
