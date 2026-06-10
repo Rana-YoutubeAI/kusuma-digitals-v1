@@ -38,4 +38,9 @@
 
   /* Decorative geometric accent (CSS background shapes) */
   --color-geo-accent:       rgba(245, 158, 11, 0.08);
+
+  /* Forms */
+  --color-input-bg:         #FFFFFF;
+  --color-error:            #DC2626;
+  --color-error-subtle:     rgba(220, 38, 38, 0.08);
 }

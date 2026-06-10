@@ -155,9 +155,11 @@ function initContactForm() {
         // Reset form
         form.reset();
         setSubmitState(submitBtn, 'idle');
-        // Redirect to /thank-you after popup shows (for GA conversion tracking)
+        // Redirect to thank-you after popup shows (for GA conversion tracking)
+        // Relative path — works on Netlify, GitHub Pages subpaths, and locally.
+        // Safe: this form only exists on contact.html at the site root.
         setTimeout(() => {
-          window.location.href = '/thank-you.html';
+          window.location.href = 'thank-you.html';
         }, 2200);
 
       } else {

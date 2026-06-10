@@ -764,8 +764,8 @@ hr {
 
 .service-card:hover {
   border-left-color: var(--color-accent);
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
 }
 
 .section--surface .service-card {
@@ -781,7 +781,7 @@ hr {
   align-items: center;
   justify-content: center;
   margin-bottom: var(--space-5);
-  transition: background-color var(--ease-base);
+  transition: background-color var(--ease-base), transform var(--ease-spring);
 }
 
 .service-card__icon [data-lucide] {
@@ -792,6 +792,7 @@ hr {
 
 .service-card:hover .service-card__icon {
   background-color: var(--color-accent);
+  transform: scale(1.08);
 }
 
 .service-card:hover .service-card__icon [data-lucide] {
@@ -827,6 +828,19 @@ hr {
 .service-card__link [data-lucide] {
   width: 14px;
   height: 14px;
+  transition: transform var(--ease-base);
+}
+
+.service-card:hover .service-card__link [data-lucide] {
+  transform: translateX(4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .service-card:hover,
+  .service-card:hover .service-card__icon,
+  .service-card:hover .service-card__link [data-lucide] {
+    transform: none;
+  }
 }
 
 
@@ -1928,7 +1942,7 @@ hr {
   padding: var(--space-3) var(--space-4);
   border: 2px solid var(--color-surface-2);
   border-radius: var(--radius-md);
-  background-color: #ffffff;
+  background-color: var(--color-input-bg);
   color: var(--color-text);
   font-family: var(--font-body);
   font-size: var(--text-base);
@@ -1953,8 +1967,8 @@ hr {
 
 .form-input.is-invalid,
 .form-textarea.is-invalid {
-  border-color: #dc2626;
-  box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.08);
+  border-color: var(--color-error);
+  box-shadow: 0 0 0 3px var(--color-error-subtle);
 }
 
 .form-textarea {
@@ -1969,7 +1983,7 @@ hr {
 .field-error {
   display: block;
   font-size: var(--text-xs);
-  color: #dc2626;
+  color: var(--color-error);
   margin-top: var(--space-2);
 }
 

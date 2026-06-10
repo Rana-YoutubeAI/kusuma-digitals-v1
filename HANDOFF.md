@@ -1,7 +1,21 @@
 # KUSUMA DIGITAL SOLUTIONS — PROJECT HANDOFF
 **For:** Claude (Radha persona) — read this at the start of every session.
 **Owner:** Rana | rana@kusumadigitals.com | St. Louis, Missouri
-**Last updated:** 2026-05-30 — Session 1 complete
+**Last updated:** 2026-06-09 — Session 5 complete
+
+> **Session 5 (2026-06-09):** Landing page synced with services page — "Full Stack
+> Development" card replaced by "Custom Business Apps & Data Tools" (#custom-apps,
+> dead #fullstack anchor fixed). 7 services now canonical (see bible). Hover polish
+> on service cards (6px lift, icon scale, arrow nudge). Automation vs Apps bullets
+> de-duplicated. Footer on all 12 pages now lists all 7 services. Order stays
+> journey-based — Rana approved NOT sorting by price.
+
+> **Session 4 (2026-06-09):** Site renamed to "Kusuma Digital Solutions" (confirmed, keep).
+> Fixed GitHub Pages breakage: about.html + services.html had absolute paths (`/css/...`)
+> violating the bible's relative-path rule — converted to relative. form.js redirect made
+> relative. sitemap.xml blog URLs fixed + privacy/terms added. og-image.jpg and
+> apple-touch-icon.png generated. Hardcoded hex in styles.css moved to theme tokens.
+> Amber theme is FINAL (chosen Session 2). GitHub Pages = preview only; launch on Netlify.
 
 ---
 

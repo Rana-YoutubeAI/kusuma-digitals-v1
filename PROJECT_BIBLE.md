@@ -2,7 +2,7 @@
 
 **Authority:** This file governs all code generation decisions.
 **Full reference:** PROJECT_BIBLE.md (rationale, hidden knowledge, history)
-**Tracker:** PROJECT_TRACKER_LITE.md (current status, issues, next tasks)
+**Tracker:** PROJECT_TRACKER.md (current status, issues, next tasks)
 
 ---
 
@@ -210,7 +210,7 @@ All components are fully defined in `styles.css` and demonstrated in `index.html
 | Nav            | `.nav`                                       | Logo = `<img class="nav__logo-icon">` (favicon.svg 36×36) + `<span class="nav__logo-text">Kusuma Digital Solutions</span>`. Copy from index.html. Change `.is-active` link only. |
 | Hero           | `.hero`                                      | Dark bg, CSS-only geo circles, badge + H1 + sub + CTAs                                                                                                                  |
 | Trust strip    | `.trust-strip`                               | One sentence, dark bg                                                                                                                                                   |
-| Service card   | `.service-card.reveal`                       | Copy `<article>` pattern. 6 per grid.                                                                                                                                   |
+| Service card   | `.service-card.reveal`                       | Copy `<article>` pattern. 6 per grid (covers all 7 services — see SERVICES & PRICING). Hover: 6px lift + icon scale + arrow nudge (reduced-motion safe).                |
 | Why item       | `.why-item.reveal`                           | Icon + title + desc. 3 per grid.                                                                                                                                        |
 | Step           | `.step.reveal`                               | Numbered. Vertical mobile → horizontal desktop.                                                                                                                         |
 | Blog card      | `.blog-card.reveal`                          | Img placeholder + tag + h3 + excerpt + link                                                                                                                             |
@@ -319,16 +319,29 @@ Forms only work on deployed Netlify URL — never on `file://` or localhost.
 
 ## SERVICES & PRICING
 
-| Service                       | Pricing                                           |
-| ----------------------------- | ------------------------------------------------- |
-| Website Design & Development  | Starter $799 / Growth $1,499 / Custom from $2,499 |
-| Local SEO & Google Presence   | Starter $299/mo / Growth $499/mo                  |
-| Monthly Website Care Plans    | Basic $79/mo / Pro $149/mo                        |
-| Google Business Profile Setup | $149 one-time                                     |
-| Custom Tools & Automation     | From $1,499/project                               |
-| Full Stack Development        | $85/hr or from $2,000/project                     |
+| Service                          | Pricing                                           |
+| -------------------------------- | ------------------------------------------------- |
+| Website Design & Development     | Starter $799 / Growth $1,499 / Custom from $2,499 |
+| Local SEO & Google Presence      | Starter $299/mo / Growth $499/mo                  |
+| Monthly Website Care Plans       | Basic $79/mo / Pro $149/mo                        |
+| Custom Tools & Automation        | From $1,499/project                               |
+| Custom Business Apps & Data Tools| $85/hr or from $2,000/project                     |
+| Data Migration & Cleanup         | From $499, larger jobs quoted                     |
+| Google Business Profile Setup    | $149 one-time                                     |
 
-Services appear in this order on all pages — do not reorder.
+**7 services total** (Session 5: "Full Stack Development" renamed to
+"Custom Business Apps & Data Tools"; "Data Migration & Cleanup" split out).
+This is the canonical order on services.html — do not reorder. Order is
+journey-based (get a site → get found → keep it healthy → grow), never price-based.
+
+Landing page shows **6 cards** covering all 7: Data Migration is folded into
+the "Custom Business Apps & Data Tools" card description (anchor: #custom-apps).
+
+Positioning guard (avoid overlap): Custom Tools & Automation = "tasks you
+already do, automated" (reminders, follow-ups, reports, scripts). Business
+Apps & Data Tools = "things you don't have yet, built" (portals, booking
+systems, databases). Booking systems and dashboards belong to Apps, not Automation.
+
 Label the tech services "Custom Tools & Automation" — never "Python and Java."
 
 ---
@@ -366,7 +379,7 @@ Label the tech services "Custom Tools & Automation" — never "Python and Java."
 10. "Python and Java" on the site — always "custom tools and automation"
 11. Change the theme — Amber is final
 12. Change CTA label from "Book a Free Call" — deliberate, do not alter
-13. Reorder the 6 services without explicit instruction from Rana
+13. Reorder the 7 services without explicit instruction from Rana
 14. Test Netlify forms locally — live Netlify URL only
 15. DEV theme switcher on any page going to production
 - Never create new CSS files — all CSS goes into `css/styles.css`
