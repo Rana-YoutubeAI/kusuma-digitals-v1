@@ -69,13 +69,23 @@ function initCookieConsent() {
   }
 }
 
+const CONSENT_TTL = 365 * 24 * 60 * 60 * 1000; // 1 year — re-prompt after expiry
+
 function getConsent() {
-  try { return localStorage.getItem(CONSENT_KEY); }
-  catch (e) { return null; }
+  try {
+    const raw = localStorage.getItem(CONSENT_KEY);
+    if (!raw) return null;
+    const { value, ts } = JSON.parse(raw);
+    if (Date.now() - ts > CONSENT_TTL) {
+      localStorage.removeItem(CONSENT_KEY);
+      return null;
+    }
+    return value;
+  } catch (e) { return null; }
 }
 
 function saveConsent(value) {
-  try { localStorage.setItem(CONSENT_KEY, value); }
+  try { localStorage.setItem(CONSENT_KEY, JSON.stringify({ value, ts: Date.now() })); }
   catch (e) {}
 }
 
@@ -128,10 +138,16 @@ function initContactForm() {
 
     if (!validateForm(form)) return;
 
+    // Rate limiting — one successful submission per 60 seconds per session
+    const lastSubmit = sessionStorage.getItem('kd_last_submit');
+    if (lastSubmit && Date.now() - Number(lastSubmit) < 60000) return;
+
     const submitBtn = form.querySelector('[type="submit"]');
 
     // Loading state
     setSubmitState(submitBtn, 'loading');
+
+    sessionStorage.setItem('kd_last_submit', String(Date.now()));
 
     try {
       // Submit to Netlify Forms
@@ -170,6 +186,8 @@ function initContactForm() {
       console.error('Form submission error:', err);
       setSubmitState(submitBtn, 'error');
       setTimeout(() => setSubmitState(submitBtn, 'idle'), 3000);
+      // Clear rate limit so the user can retry after a network error
+      sessionStorage.removeItem('kd_last_submit');
     }
   });
 }
@@ -185,6 +203,7 @@ function validateForm(form) {
   const fields = [
     { id: 'contact-name',    label: 'Name',            required: true,  type: 'text'  },
     { id: 'contact-email',   label: 'Email address',   required: true,  type: 'email' },
+    { id: 'contact-phone',   label: 'Phone number',    required: true,  type: 'tel'   },
     { id: 'contact-message', label: 'Message',         required: true,  type: 'text'  },
   ];
 
@@ -206,6 +225,19 @@ function validateForm(form) {
         showFieldError(input, 'Please enter a valid email address.');
         valid = false;
       }
+    }
+
+    if (type === 'tel' && value) {
+      const telPattern = /^[\d\s()\-+.]{7,20}$/;
+      if (!telPattern.test(value)) {
+        showFieldError(input, 'Please enter a valid phone number.');
+        valid = false;
+      }
+    }
+
+    if (id === 'contact-message' && value.length > 3000) {
+      showFieldError(input, 'Message must be under 3000 characters.');
+      valid = false;
     }
   });
 
