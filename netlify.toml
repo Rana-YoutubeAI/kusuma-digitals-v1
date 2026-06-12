@@ -8,16 +8,23 @@
 
 # Force HTTP → HTTPS (Netlify does this by default but explicit is better)
 [[redirects]]
-  from = "http://kusumadigitals.com/*"
-  to   = "https://www.kusumadigitals.com/:splat"
+  from = "http://kusumadigitalsolutions.com/*"
+  to   = "https://www.kusumadigitalsolutions.com/:splat"
   status = 301
   force  = true
 
 # Force non-www → www (canonical domain)
 [[redirects]]
-  from = "https://kusumadigitals.com/*"
-  to   = "https://www.kusumadigitals.com/:splat"
+  from = "https://kusumadigitalsolutions.com/*"
+  to   = "https://www.kusumadigitalsolutions.com/:splat"
   status = 301
+  force  = true
+
+# Block internal docs from being served publicly
+[[redirects]]
+  from   = "/docs/*"
+  to     = "/404.html"
+  status = 404
   force  = true
 
 # Custom 404 page — MUST be last redirect

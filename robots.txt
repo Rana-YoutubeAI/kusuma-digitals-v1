@@ -5,4 +5,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location — submitted separately to Google Search Console
-Sitemap: https://www.kusumadigitals.com/sitemap.xml
+Sitemap: https://www.kusumadigitalsolutions.com/sitemap.xml
