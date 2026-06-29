@@ -15,7 +15,7 @@
 
 'use strict';
 
-const GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // ← REPLACE THIS BEFORE LAUNCH
+const GA_MEASUREMENT_ID = 'G-G42JELTPRQ'; // Kusuma Website — GA4 stream ID 15171676544
 const CONSENT_KEY       = 'kd_cookie_consent'; // localStorage key
 const CONSENT_ACCEPTED  = 'accepted';
 const CONSENT_DECLINED  = 'declined';
