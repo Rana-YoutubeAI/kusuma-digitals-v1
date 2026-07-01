@@ -4,7 +4,7 @@
   <!-- Homepage — highest priority -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -12,7 +12,7 @@
   <!-- Services — second most important for conversions -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/services.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
@@ -20,7 +20,7 @@
   <!-- Contact — high priority, direct lead gen page -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/contact.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -28,7 +28,7 @@
   <!-- About -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/about.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -36,7 +36,7 @@
   <!-- Blog index -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/blog/</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -44,7 +44,7 @@
   <!-- Blog Post 1: Website cost St. Louis -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/blog/post-1.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -52,7 +52,7 @@
   <!-- Blog Post 2: Not showing on Google -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/blog/post-2.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -60,7 +60,7 @@
   <!-- Blog Post 3: What is local SEO -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/blog/post-3.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -68,7 +68,7 @@
   <!-- Privacy Policy -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/privacy.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>
@@ -76,7 +76,7 @@
   <!-- Terms and Conditions -->
   <url>
     <loc>https://www.kusumadigitalsolutions.com/terms.html</loc>
-    <lastmod>2026-06-09</lastmod>
+    <lastmod>2026-06-29</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.3</priority>
   </url>

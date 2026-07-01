@@ -127,11 +127,64 @@ function loadGA() {
 
 
 /* ─── 3 & 4. CONTACT FORM + SUCCESS POPUP ────────────────────── */
+
+/* Validation rules — pure functions, no DOM (unit-testable).
+   Return an error message string, or null when the value passes. */
+const KD_DISPOSABLE_DOMAINS = [
+  'mailinator.com', 'guerrillamail.com', '10minutemail.com', 'tempmail.com',
+  'temp-mail.org', 'yopmail.com', 'sharklasers.com', 'trashmail.com',
+  'dispostable.com', 'getnada.com', 'maildrop.cc', 'fakeinbox.com',
+  'throwawaymail.com', 'mohmal.com', 'mintemail.com', 'example.com',
+];
+
+const KD_VALIDATORS = {
+  name(value) {
+    if (!value) return 'Name is required.';
+    if (value.length < 2 || !/[a-zA-Z]/.test(value)) return 'Please enter your name.';
+    return null;
+  },
+  email(value) {
+    if (!value) return 'Email address is required.';
+    const m = value.match(/^[^\s@]+@([^\s@]+\.[a-zA-Z]{2,})$/);
+    if (!m) return 'Please enter a valid email address.';
+    if (KD_DISPOSABLE_DOMAINS.includes(m[1].toLowerCase())) {
+      return "Please use a permanent email — it's how I reply to you.";
+    }
+    return null;
+  },
+  phone(value) {
+    if (!value) return 'Phone number is required.';
+    const digits = value.replace(/\D/g, '');
+    const ten = (digits.length === 11 && digits[0] === '1') ? digits.slice(1) : digits;
+    if (ten.length !== 10) return 'Please enter a 10-digit US phone number.';
+    // NANP sanity: area code can't start with 0/1; reject repeated/sequential fakes
+    if (/^(\d)\1{9}$/.test(ten) || ten === '1234567890' || ten[0] === '0' || ten[0] === '1') {
+      return "That doesn't look like a real phone number.";
+    }
+    return null;
+  },
+  message(value) {
+    if (!value) return 'Message is required.';
+    if (value.length < 10) return 'Tell me a little more — at least 10 characters.';
+    if (value.length > 3000) return 'Message must be under 3000 characters.';
+    return null;
+  },
+};
+
+const KD_FIELDS = [
+  { id: 'contact-name',    rule: 'name'    },
+  { id: 'contact-email',   rule: 'email'   },
+  { id: 'contact-phone',   rule: 'phone'   },
+  { id: 'contact-message', rule: 'message' },
+];
+
 function initContactForm() {
   const form  = document.getElementById('contact-form');
   const popup = document.getElementById('success-popup');
 
   if (!form) return;
+
+  initLiveValidation();
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -192,66 +245,60 @@ function initContactForm() {
   });
 }
 
-/* Validate form fields */
-function validateForm(form) {
-  let valid = true;
-
-  // Remove all previous errors first
-  form.querySelectorAll('.field-error').forEach(el => el.remove());
-  form.querySelectorAll('.is-invalid').forEach(el => el.classList.remove('is-invalid'));
-
-  const fields = [
-    { id: 'contact-name',    label: 'Name',            required: true,  type: 'text'  },
-    { id: 'contact-email',   label: 'Email address',   required: true,  type: 'email' },
-    { id: 'contact-phone',   label: 'Phone number',    required: true,  type: 'tel'   },
-    { id: 'contact-message', label: 'Message',         required: true,  type: 'text'  },
-  ];
-
-  fields.forEach(({ id, label, required, type }) => {
+/* Live validation — warn the moment a field is left invalid (on blur),
+   clear the warning as soon as the user fixes it (on input). */
+function initLiveValidation() {
+  KD_FIELDS.forEach(({ id, rule }) => {
     const input = document.getElementById(id);
     if (!input) return;
 
-    const value = input.value.trim();
+    input.addEventListener('blur', () => {
+      setFieldError(input, KD_VALIDATORS[rule](input.value.trim()));
+    });
 
-    if (required && !value) {
-      showFieldError(input, `${label} is required.`);
-      valid = false;
-      return;
-    }
-
-    if (type === 'email' && value) {
-      const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailPattern.test(value)) {
-        showFieldError(input, 'Please enter a valid email address.');
-        valid = false;
+    input.addEventListener('input', () => {
+      // Only re-check while in an error state — don't nag mid-typing
+      if (input.classList.contains('is-invalid')) {
+        const error = KD_VALIDATORS[rule](input.value.trim());
+        if (!error) setFieldError(input, null);
       }
-    }
-
-    if (type === 'tel' && value) {
-      const telPattern = /^[\d\s()\-+.]{7,20}$/;
-      if (!telPattern.test(value)) {
-        showFieldError(input, 'Please enter a valid phone number.');
-        valid = false;
-      }
-    }
-
-    if (id === 'contact-message' && value.length > 3000) {
-      showFieldError(input, 'Message must be under 3000 characters.');
-      valid = false;
-    }
+    });
   });
-
-  return valid;
 }
 
-function showFieldError(input, message) {
-  input.classList.add('is-invalid');
-  const error = document.createElement('span');
-  error.className    = 'field-error';
-  error.textContent  = message;
-  error.setAttribute('role', 'alert');
-  input.parentNode.appendChild(error);
-  input.focus();
+/* Validate all fields (submit-time gate) */
+function validateForm(form) {
+  let firstInvalid = null;
+
+  KD_FIELDS.forEach(({ id, rule }) => {
+    const input = document.getElementById(id);
+    if (!input) return;
+
+    const error = KD_VALIDATORS[rule](input.value.trim());
+    setFieldError(input, error);
+    if (error && !firstInvalid) firstInvalid = input;
+  });
+
+  if (firstInvalid) firstInvalid.focus();
+  return !firstInvalid;
+}
+
+/* Show or clear a single field's inline error */
+function setFieldError(input, message) {
+  const existing = input.parentNode.querySelector('.field-error');
+  if (existing) existing.remove();
+  input.classList.remove('is-invalid');
+  input.removeAttribute('aria-invalid');
+
+  if (message) {
+    input.classList.add('is-invalid');
+    input.setAttribute('aria-invalid', 'true');
+    const error = document.createElement('span');
+    error.className   = 'field-error';
+    error.textContent = message;
+    error.setAttribute('role', 'alert');
+    input.parentNode.appendChild(error);
+  }
 }
 
 /* Update submit button state */
@@ -293,3 +340,5 @@ function closePopup(popup) {
   popup.classList.remove('is-visible');
   popup.setAttribute('aria-hidden', 'true');
 }
+
+/* End of form.js */

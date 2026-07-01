@@ -48,7 +48,7 @@ body { visibility: visible !important; }
   ─────────────────────────────────────────────────────────────────
   30. About Page
   31. Contact Form Inputs
-  32. Contact Page Layout & Calendly
+  32. Contact Page Layout & Booking
   33. Thank-You Page
   34. 404 Page
   ─────────────────────────────────────────────────────────────────
@@ -1710,7 +1710,9 @@ hr {
   transition: box-shadow var(--ease-base);
 }
 
-.faq-item.is-open { box-shadow: var(--shadow-sm); }
+.faq-item.is-open {
+  box-shadow: inset 3px 0 0 var(--color-accent), var(--shadow-md);
+}
 
 .faq-question {
   width: 100%;
@@ -1743,7 +1745,7 @@ hr {
   height: 18px;
   flex-shrink: 0;
   color: var(--color-text-muted);
-  transition: transform var(--ease-base), color var(--ease-fast);
+  transition: transform var(--ease-spring), color var(--ease-fast);
 }
 
 .faq-item.is-open .faq-question [data-lucide] {
@@ -1760,7 +1762,15 @@ hr {
 
 .faq-item.is-open .faq-answer { max-height: 600px; }
 
+.faq-item.is-open .faq-answer__inner {
+  opacity: 1;
+  transform: none;
+}
+
 .faq-answer__inner {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.35s ease 0.1s, transform 0.35s ease 0.1s;
   padding: var(--space-5) var(--space-6);
   color: var(--color-text-muted);
   font-size: var(--text-base);
@@ -2087,7 +2097,7 @@ hr {
 
 
 /* ═══════════════════════════════════════════════════════════════
-   32. CONTACT PAGE LAYOUT & CALENDLY EMBED
+   32. CONTACT PAGE LAYOUT & BOOKING CARD
    ═══════════════════════════════════════════════════════════════ */
 
 /* Two-column layout: form | contact details */
@@ -2151,46 +2161,71 @@ hr {
 
 .contact-detail__value a:hover { opacity: 0.75; }
 
-/* Calendly embed container */
-.calendly-wrap {
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background-color: var(--color-background);
-}
-
-.calendly-wrap iframe {
-  width: 100%;
-  height: 700px;
-  border: none;
-  display: block;
-}
-
-/* Placeholder shown until Calendly URL is added */
-.calendly-placeholder {
+/* Booking card — Google Calendar appointment schedule */
+.booking-card {
+  max-width: 540px;
+  margin-inline: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   gap: var(--space-4);
   text-align: center;
-  padding: var(--space-12);
-  background-color: var(--color-surface);
-  border-radius: var(--radius-lg);
-  border: 2px dashed var(--color-border);
+  padding: var(--space-12) var(--space-8);
+  background-color: var(--color-background);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--ease-base), transform var(--ease-spring);
+}
+
+.booking-card:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.booking-card__icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: var(--color-accent-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: booking-pulse 3s ease-in-out infinite;
+}
+
+.booking-card__icon [data-lucide] {
+  width: 34px;
+  height: 34px;
+  color: var(--color-accent);
+}
+
+.booking-card__title {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semi);
+  letter-spacing: -0.01em;
+}
+
+.booking-card__text {
+  font-size: var(--text-base);
   color: var(--color-text-muted);
-}
-
-.calendly-placeholder [data-lucide] {
-  width: 36px;
-  height: 36px;
-  opacity: 0.35;
-}
-
-.calendly-placeholder p {
-  font-size: var(--text-sm);
   line-height: 1.6;
-  max-width: 320px;
+  max-width: 380px;
+}
+
+.booking-card__hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+}
+
+@keyframes booking-pulse {
+  0%, 100% { transform: scale(1);    box-shadow: 0 0 0 0 var(--color-accent-subtle); }
+  50%      { transform: scale(1.06); box-shadow: 0 0 0 12px rgba(245, 158, 11, 0); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .booking-card__icon { animation: none; }
+  .booking-card:hover { transform: none; }
 }
 
 
