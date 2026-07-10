@@ -37,8 +37,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/theme-amber.css" id="theme-stylesheet">
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/theme-amber.css?v=3" id="theme-stylesheet">
+  <link rel="stylesheet" href="css/styles.css?v=3">
   <style>body{visibility:hidden}</style>
 
   <script type="application/ld+json">
@@ -159,39 +159,48 @@
       <div class="container">
         <div class="about-work reveal">
 
-          <!-- Photo — replace src with your real photo when ready -->
-          <div class="about-photo">
-            <img src="images/rana.jpg"
-                 alt="Rana, founder of Kusuma Digital Solutions, St. Louis Missouri"
-                 width="904"
-                 height="1204"
-                 loading="eager">
-          </div>
-
-          <!-- Content -->
+          <!-- Content — low-key intro (round avatar + name) -->
           <div class="about-work__content">
-            <span class="eyebrow">About Rana</span>
+            <div class="about-avatar">
+              <img src="images/rana.jpg"
+                   alt="Rana, founder of Kusuma Digital Solutions, St. Louis Missouri"
+                   width="904"
+                   height="1204"
+                   loading="eager">
+              <p class="about-avatar__who">
+                Rana
+                <span>Founder, Kusuma Digital Solutions — St. Louis</span>
+              </p>
+            </div>
+
             <h2 id="bio-heading" class="text-h2" style="margin-bottom: var(--space-6);">
-              The Person Behind Kusuma Digital Solutions
+              Kusuma means <span class="accent-word">blossom</span>.
+              We help your business grow its digital roots.
             </h2>
 
             <!-- UPDATE: Replace these paragraphs with your actual story -->
             <div class="about-story">
               <p>
-                I started Kusuma Digital Solutions after watching good St. Louis businesses lose
-                customers to competitors with better websites — not better products, just a better
-                online presence. That felt wrong. And fixable.
+                You run a good business. Your customers love what you do — but when someone
+                new searches for it, they find your competitor first. Not because they're
+                better. Because their website is. That gap costs you real money every single
+                week, and it's exactly the problem Kusuma Digital Solutions exists to fix.
               </p>
               <p>
-                I've spent years building technical tools, frameworks, and systems for private
-                companies — and along the way I kept seeing the same thing: most agencies are built
-                for big clients. Small businesses get handed to junior staff, locked into long
-                contracts, and left reading reports nobody bothers to explain.
+                Maybe you've tried getting help before and got burned — most agencies are
+                built for big clients. Small businesses get handed to junior staff, locked
+                into long contracts, and left reading reports nobody bothers to explain.
+                I get it, and I built this to be the opposite. I've spent years inside
+                companies' systems — different seats, same machine — which is why I can talk
+                about your bookings, your website, and your spreadsheet chaos in one
+                conversation, in plain English.
               </p>
               <p>
-                Kusuma Digital Solutions is built to be the opposite of that. It's just me — the same
-                person who picks up your call, builds your site, and fixes it if something goes
-                wrong. No handoffs. No surprises.
+                Here's where this goes: customers find you instead of the other guy, calls
+                get booked while you sleep, and your website finally pulls its weight — while
+                you get back to running your business. One person handles all of it: the same
+                person who picks up your call, builds your site, and fixes it if something
+                goes wrong. No handoffs. No surprises.
               </p>
             </div>
 
@@ -362,8 +371,8 @@
   </footer>
 
   <script src="https://unpkg.com/lucide@1.23.0/dist/umd/lucide.min.js"></script>
-  <script src="js/main.js"></script>
-  <script src="js/form.js"></script>
+  <script src="js/main.js?v=3"></script>
+  <script src="js/form.js?v=3"></script>
   <script>document.getElementById('copyright-year').textContent = new Date().getFullYear();</script>
 
 </body>
